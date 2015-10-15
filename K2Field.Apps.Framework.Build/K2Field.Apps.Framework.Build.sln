@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2Field.Apps.Framework.Build", "K2Field.Apps.Framework.Build\K2Field.Apps.Framework.Build.csproj", "{E6745B30-730D-4BC3-98D6-57CEB9D37781}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{913200E9-E133-410A-A186-2298A9138DCE}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2Field.Apps.Framework.Build.Sandbox", "K2Field.Apps.Framework.Build.Sandbox\K2Field.Apps.Framework.Build.Sandbox.csproj", "{A371B36E-E27C-49C5-B85D-0CC816B5A1AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6745B30-730D-4BC3-98D6-57CEB9D37781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6745B30-730D-4BC3-98D6-57CEB9D37781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6745B30-730D-4BC3-98D6-57CEB9D37781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6745B30-730D-4BC3-98D6-57CEB9D37781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A371B36E-E27C-49C5-B85D-0CC816B5A1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A371B36E-E27C-49C5-B85D-0CC816B5A1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A371B36E-E27C-49C5-B85D-0CC816B5A1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A371B36E-E27C-49C5-B85D-0CC816B5A1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+
+
+
+* Serialize/deserialize SmartObject Definitions
+
+* Create SmartObjects
+* Create Association between SmartObjects

@@ -1,0 +1,13 @@
+﻿<Window x:Class="K2Field.Apps.Framework.Build.Sandbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:K2Field.Apps.Framework.Build.Sandbox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnCreateFrameworkSmartObjects" Content="Create Framework" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top" Width="142" Click="btnCreateFrameworkSmartObjects_Click"/>
+
+    </Grid>
+</Window>
