@@ -39,6 +39,19 @@ namespace K2Field.Apps.Framework.Build
                 IsSmartBox = true,
                 MaxSize = 500
             });
+            AppTypeProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("06a714e5-7968-46f1-ae98-cd8f4655cd94"),
+                SystemName = "Description",
+                DisplayName = "Description",
+                DataType = SmODataType.Memo,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Description",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+            });
 
             AppTypeProperties.Add(new SmartObjectProperty()
             {
