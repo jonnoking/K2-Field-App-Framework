@@ -1,5 +1,8 @@
 ﻿using SourceCode.Hosting.Client.BaseAPI;
 using SourceCode.SmartObjects.Authoring;
+using SourceCode.SmartObjects.Management;
+using SourceCode.SmartObjects.Services.Management;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,84 +41,66 @@ namespace K2Field.Apps.Framework.Build.Sandbox
 
 
             SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr = GetSmOServer();
-
+            SmartObjectDefinition appType = new AppType().GetDefinition();
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition Def = CreateSmartObject(SmartObjectManagementSvr, appType);
+            
+            SmartObjectManagementSvr.PublishSmartObject(Def.ToXml(), "Test Category");
 
 
         }
 
-        private void CreateSmartObject(SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr, K2Field.Apps.Framework.Build.SmartObjectDefinition SmO)
+        private SourceCode.SmartObjects.Authoring.SmartObjectDefinition CreateSmartObject(SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr, K2Field.Apps.Framework.Build.SmartObjectDefinition SmO)
         {
             
             ServiceInstance serviceInstance = ServiceInstance.Create(SmartObjectManagementSvr.GetServiceInstanceForExtend(SmO.ServiceInstanceId, string.Empty));
             ExtendObject extendObject = serviceInstance.GetCreateExtender();
 
+            extendObject.Guid = SmO.Id;
             extendObject.Name = SmO.SystemName;
             extendObject.Metadata.DisplayName = SmO.DisplayName;
             extendObject.Metadata.Description = SmO.Description;
-            
+               
+
             foreach(K2Field.Apps.Framework.Build.SmartObjectProperty prop in SmO.Properties)
             {
                 ExtendObjectProperty SoProp = new ExtendObjectProperty();
                 SoProp.Guid = prop.Id;
-                SoProp.Name = prop.SystemName;
+                SoProp.Name = prop.SystemName.Replace(" ", "_").Replace(".", "_");
                 SoProp.Metadata.DisplayName = prop.DisplayName;
                 SoProp.Type = (PropertyDefinitionType)prop.DataType;
-                if (prop.ExtendType != null)
-                {
-                    SoProp.ExtendType = (SourceCode.SmartObjects.Authoring.ExtendPropertyType)prop.ExtendType;
-                }
-                else
-                {
-                    SoProp.ExtendType = SourceCode.SmartObjects.Authoring.ExtendPropertyType.Default;
-                }
-                //ServiceElementDefinition
-                ServiceElementDefinitionCollection
-                //SoProp.Metadata.ServiceElements
-                //ServiceElementDefinition a = new ServiceElementDefinition();
-                //a.Guid = Guid.NewGuid();
-                //a.Name = "maxsize";
-                //a.Value = "100";
+                SoProp.ExtendType = (SourceCode.SmartObjects.Authoring.ExtendPropertyType)prop.ExtendType;
                 
+                if (prop.MaxSize.HasValue && prop.MaxSize.Value > 0)
+                {
+                    SoProp.Metadata.AddServiceElement("maxsize", prop.MaxSize.Value.ToString());
+                }
 
+                if (!extendObject.Properties.ContainsName(prop.SystemName))
+                {
+                    extendObject.Properties.Add(SoProp);
+                }                
             }
 
 
-            //// Create 'id' property
-            //ExtendObjectProperty idProperty = new ExtendObjectProperty();
-            //idProperty.Name = "Id";
-            //idProperty.Metadata.DisplayName = idProperty.Name;
-            //idProperty.Type = PropertyDefinitionType.Autonumber;
-            //idProperty.ExtendType = ExtendPropertyType.UniqueIdAuto;
 
-            //// Create 'name' property
-            //ExtendObjectProperty nameProperty = new ExtendObjectProperty();
-            //nameProperty.Name = "Name";
-            //nameProperty.Metadata.DisplayName = nameProperty.Name;
-            //nameProperty.Type = PropertyDefinitionType.Text;
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition smoDefinition = new SourceCode.SmartObjects.Authoring.SmartObjectDefinition();
 
-            // Create other properties here as needed
-            // Add the new properties below
+            try
+            {
 
-            //foreach (ExtendObjectProperty item in properties)
-            //{
-            //    extendObject.Properties.Add(item);
-            //}
-
-            // Add properties
-            //extendObject.Properties.Add(idProperty);
-            //extendObject.Properties.Add(nameProperty);
-
-            SmartObjectDefinition smoDefinition = new SmartObjectDefinition();
-
-            
-
-            // Create SmartObject Definition
-            //smoDefinition.Create(extendObject);
-            //smoDefinition.Build();
+                // Create SmartObject Definition
+                smoDefinition.Create(extendObject);
+                //smoDefinition.AddDeploymentCategory("test category");
+                smoDefinition.Build();
+            }
+            catch (SmartObjectDefinitionException defEx)
+            {
+                MessageBox.Show(defEx.Message);
+                throw;
+            }
 
 
-
-            //return smoDefinition;
+            return smoDefinition;
         }
 
         private SourceCode.SmartObjects.Management.SmartObjectManagementServer GetSmOServer()
