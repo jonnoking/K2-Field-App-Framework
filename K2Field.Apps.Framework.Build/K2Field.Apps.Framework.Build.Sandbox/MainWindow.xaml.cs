@@ -44,9 +44,22 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             SmartObjectDefinition appType = new AppType().GetDefinition();
             SourceCode.SmartObjects.Authoring.SmartObjectDefinition Def = CreateSmartObject(SmartObjectManagementSvr, appType);
             
-            SmartObjectManagementSvr.PublishSmartObject(Def.ToXml(), "Test Category");
+            //SmartObjectManagementSvr.PublishSmartObject(Def.ToXml(), "Test Category");
 
 
+            SmartObjectDefinitionsPublish smoPublish = new SmartObjectDefinitionsPublish();
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppBusinessAudit().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppException().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppInstance().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppKPI().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppPriority().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppProcess().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStage().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStageAction().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStatus().GetDefinition())));
+            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppType().GetDefinition())));
+            
+            PublishSmartObjects(smoPublish);
         }
 
         private SourceCode.SmartObjects.Authoring.SmartObjectDefinition CreateSmartObject(SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr, K2Field.Apps.Framework.Build.SmartObjectDefinition SmO)
