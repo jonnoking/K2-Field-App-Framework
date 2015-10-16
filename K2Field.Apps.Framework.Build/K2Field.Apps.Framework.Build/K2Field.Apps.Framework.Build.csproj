@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppBusinessAudit.cs" />
+    <Compile Include="AppException.cs" />
+    <Compile Include="AppInstance.cs" />
+    <Compile Include="AppKPI.cs" />
+    <Compile Include="AppPriority.cs" />
+    <Compile Include="AppProcess.cs" />
+    <Compile Include="AppStage.cs" />
+    <Compile Include="AppStageAction.cs" />
+    <Compile Include="AppStatus.cs" />
     <Compile Include="AppType.cs" />
     <Compile Include="ServiceInstanceTypes.cs" />
     <Compile Include="SmartObjectDefinition.cs" />
