@@ -407,6 +407,20 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
+            AppInstanceProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("b289a61e-c961-4ee3-9528-9f028e56626a"),
+                SystemName = "Record Identifier",
+                DisplayName = "Record Identifier",
+                DataType = SmODataType.Text,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Record Identifier",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+                MaxSize = 100
+            });
 
             SmartObjectDefinition AppInstance = new SmartObjectDefinition()
             {

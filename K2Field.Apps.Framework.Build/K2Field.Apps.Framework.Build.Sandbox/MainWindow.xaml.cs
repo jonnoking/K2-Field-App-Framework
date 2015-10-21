@@ -38,8 +38,6 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             //System.IO.File.WriteAllText(BaseDirectory + "\\K2App.Core.SMO.AppType.json", Newtonsoft.Json.JsonConvert.SerializeObject(AppType));
 
 
-
-
             SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr = GetSmOServer();
             SmartObjectDefinition appType = new AppType().GetDefinition();
             SourceCode.SmartObjects.Authoring.SmartObjectDefinition Def = CreateSmartObject(SmartObjectManagementSvr, appType);
@@ -59,7 +57,12 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStatus().GetDefinition())));
             smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppType().GetDefinition())));
             
-            PublishSmartObjects(smoPublish);
+
+            
+            SmartObjectManagementSvr.PublishSmartObjects(smoPublish.ToPublishXml());
+
+
+
         }
 
         private SourceCode.SmartObjects.Authoring.SmartObjectDefinition CreateSmartObject(SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr, K2Field.Apps.Framework.Build.SmartObjectDefinition SmO)
@@ -87,6 +90,10 @@ namespace K2Field.Apps.Framework.Build.Sandbox
                 {
                     SoProp.Metadata.AddServiceElement("maxsize", prop.MaxSize.Value.ToString());
                 }
+                else
+                {
+                    SoProp.Metadata.AddServiceElement("maxsize", "200");
+                }
 
                 if (!extendObject.Properties.ContainsName(prop.SystemName))
                 {
@@ -94,6 +101,7 @@ namespace K2Field.Apps.Framework.Build.Sandbox
                 }                
             }
 
+            
 
 
             SourceCode.SmartObjects.Authoring.SmartObjectDefinition smoDefinition = new SourceCode.SmartObjects.Authoring.SmartObjectDefinition();

@@ -31,7 +31,7 @@ namespace K2Field.Apps.Framework.Build
                 Id = new Guid("3e7771d5-8eff-4570-b063-98b4ac80c131"),
                 SystemName = "App Instance ID",
                 DisplayName = "App Instance ID",
-                DataType = SmODataType.AutoGuid,
+                DataType = SmODataType.Guid,
                 ExtendType = ExtendPropertyType.Default,
                 Description = "App Instance ID",
                 IsKey = false,
