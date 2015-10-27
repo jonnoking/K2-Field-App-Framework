@@ -37,8 +37,29 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             //string BaseDirectory = @"C:\Development\K2 Field App Framework";
             //System.IO.File.WriteAllText(BaseDirectory + "\\K2App.Core.SMO.AppType.json", Newtonsoft.Json.JsonConvert.SerializeObject(AppType));
 
-
             SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr = GetSmOServer();
+            
+
+            Dictionary<Guid, string> FrameworkSmartObjects = new Dictionary<Guid, string>();
+            FrameworkSmartObjects.Add(new Guid("5a3c77f1-731f-4930-a1ec-533dd8300ff3"), "K2App_Core_SMO_AppBusinessAudit");
+            FrameworkSmartObjects.Add(new Guid("0c020fc7-8611-4826-9399-904ba5873100"), "K2App_Core_SMO_AppException");
+            FrameworkSmartObjects.Add(new Guid("9b9c753b-b8cc-4108-80c6-ba14141d8f6f"), "K2App_Core_SMO_AppInstance");
+            FrameworkSmartObjects.Add(new Guid("c501ff73-20ef-44ac-a5fe-9e35fc92df79"), "K2App_Core_SMO_AppKPI");
+            FrameworkSmartObjects.Add(new Guid("74c9793e-e9cc-44b7-8f03-465b40abe117"), "K2App_Core_SMO_AppPriority");
+            FrameworkSmartObjects.Add(new Guid("2A2FED0D-3141-411C-96A7-2EC1CDD1E78E"), "K2App_Core_SMO_AppProcess");
+            FrameworkSmartObjects.Add(new Guid("6d8facc6-40da-4a74-b8cc-f9bec1b9cc25"), "K2App_Core_SMO_AppStage");
+            FrameworkSmartObjects.Add(new Guid("e9de772e-3ab7-417a-b07d-3acf862fbddd"), "K2App_Core_SMO_AppStageAction");
+            FrameworkSmartObjects.Add(new Guid("7d89eee6-cda0-4e74-b47c-296acd4959a7"), "K2App_Core_SMO_AppStatus");
+            FrameworkSmartObjects.Add(new Guid("5a82e2fc-cd5b-4346-b508-d01095a51de3"), "K2App_Core_SMO_AppType");
+
+            SmartObjectExplorer smoExp = SmartObjectManagementSvr.GetSmartObjects(FrameworkSmartObjects.Values.ToArray());
+            foreach(SmartObjectInfo smo in smoExp.SmartObjectList)
+            {
+                SmartObjectManagementSvr.DeleteSmartObject(smo.Guid, true);
+            }
+
+            return;
+
             
             //SmartObjectManagementSvr.PublishSmartObject(Def.ToXml(), "Test Category");
 
@@ -56,9 +77,7 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStageAction().GetDefinition()), DeploymentCategory));
             smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStatus().GetDefinition()), DeploymentCategory));
             smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppType().GetDefinition()), DeploymentCategory));
-            
 
-            
             SmartObjectManagementSvr.PublishSmartObjects(smoPublish.ToPublishXml());
 
 

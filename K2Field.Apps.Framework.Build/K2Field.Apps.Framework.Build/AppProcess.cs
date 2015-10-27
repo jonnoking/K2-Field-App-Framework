@@ -271,9 +271,9 @@ namespace K2Field.Apps.Framework.Build
 
             SmartObjectDefinition AppProcess = new SmartObjectDefinition()
             {
-                Id = new Guid("74c9793e-e9cc-44b7-8f03-465b40abe117"),
+                Id = new Guid("2A2FED0D-3141-411C-96A7-2EC1CDD1E78E"),
                 SystemName = "K2App.Core.SMO.AppProcess",
-                DisplayName = "K2 App CoreApp Process",
+                DisplayName = "K2 App Core App Process",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppProcessProperties
             };
