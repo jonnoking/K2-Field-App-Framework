@@ -37,7 +37,7 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             //string BaseDirectory = @"C:\Development\K2 Field App Framework";
             //System.IO.File.WriteAllText(BaseDirectory + "\\K2App.Core.SMO.AppType.json", Newtonsoft.Json.JsonConvert.SerializeObject(AppType));
 
-            SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr = GetSmOServer();
+            SourceCode.SmartObjects.Management.SmartObjectManagementServer Server = GetSmOServer();
             
 
             Dictionary<Guid, string> FrameworkSmartObjects = new Dictionary<Guid, string>();
@@ -52,35 +52,36 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             FrameworkSmartObjects.Add(new Guid("7d89eee6-cda0-4e74-b47c-296acd4959a7"), "K2App_Core_SMO_AppStatus");
             FrameworkSmartObjects.Add(new Guid("5a82e2fc-cd5b-4346-b508-d01095a51de3"), "K2App_Core_SMO_AppType");
 
-            SmartObjectExplorer smoExp = SmartObjectManagementSvr.GetSmartObjects(FrameworkSmartObjects.Values.ToArray());
+            SmartObjectExplorer smoExp = Server.GetSmartObjects(FrameworkSmartObjects.Values.ToArray());
             foreach(SmartObjectInfo smo in smoExp.SmartObjectList)
             {
-                SmartObjectManagementSvr.DeleteSmartObject(smo.Guid, true);
+                Server.DeleteSmartObject(smo.Guid, true);
             }
 
-            return;
+            
 
             
             //SmartObjectManagementSvr.PublishSmartObject(Def.ToXml(), "Test Category");
 
             string DeploymentCategory = @"New App Framework\SmartObjects";
 
-            SmartObjectDefinitionsPublish smoPublish = new SmartObjectDefinitionsPublish();
+            //SmartObjectDefinitionsPublish smoPublish = new SmartObjectDefinitionsPublish();
 
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppBusinessAudit().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppException().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppInstance().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppKPI().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppPriority().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppProcess().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStage().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStageAction().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppStatus().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartObject(SmartObjectManagementSvr, (new AppType().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppBusinessAudit().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppException().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppInstance().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppKPI().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppPriority().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppProcess().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppStage().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppStageAction().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppStatus().GetDefinition()), DeploymentCategory));
+            //smoPublish.SmartObjects.Add(CreateSmartObject(Server, (new AppType().GetDefinition()), DeploymentCategory));
 
-            SmartObjectManagementSvr.PublishSmartObjects(smoPublish.ToPublishXml());
+            //Server.PublishSmartObjects(smoPublish.ToPublishXml());
 
-
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition AuditDef = CreateSmartObject(Server, (new AppBusinessAudit().GetDefinition()), DeploymentCategory);
+            Server.DeploySmartObject(AuditDef.ToXml(), AuditDef.Guid);
 
         }
 
