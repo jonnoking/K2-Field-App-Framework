@@ -88,7 +88,19 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdType = CreateSmartBoxSmartObject(Server, (new AppType().GetDefinition()), DeploymentCategory);
             smoPublish.SmartObjects.Add(sdType);
 
-            sdInstance.AddAssociation(sdAudit, sdAudit.Properties["App_Instance_ID"], sdInstance.Properties["ID"], "AppInstanceAppStage");
+            // App Instance to App Business Audit
+            sdInstance.AddAssociation(sdAudit, sdAudit.Properties["App_Instance_ID"], sdInstance.Properties["ID"], "AppInstanceAppBusinessAudt");
+            // App Instance to App Process
+            sdInstance.AddAssociation(sdProcess, sdProcess.Properties["App_Instance_ID"], sdInstance.Properties["ID"], "AppInstanceAppProcess");
+            // Parent App Instance to App Instance
+            sdInstance.AddAssociation(sdInstance, sdProcess.Properties["ID"], sdInstance.Properties["Parent_Application_Instance_ID"], "ParentAppInstanceAppInstance");
+
+
+            // App Type to App Stage
+            sdType.AddAssociation(sdStage, sdStage.Properties["App_Type_ID"], sdType.Properties["ID"], "AppTypeAppStage");
+
+            // App Type to App Status
+            sdType.AddAssociation(sdStatus, sdStatus.Properties["App_Type_ID"], sdType.Properties["ID"], "AppTypeAppStatus");
 
 
             Server.PublishSmartObjects(smoPublish.ToPublishXml());
@@ -133,14 +145,17 @@ namespace K2Field.Apps.Framework.Build.Sandbox
                 SoProp.Metadata.DisplayName = prop.DisplayName;
                 SoProp.Type = (PropertyDefinitionType)prop.DataType;
                 SoProp.ExtendType = (SourceCode.SmartObjects.Authoring.ExtendPropertyType)prop.ExtendType;
-                
-                if (prop.MaxSize.HasValue && prop.MaxSize.Value > 0)
+
+                if (prop.DataType == SmODataType.Text)
                 {
-                    SoProp.Metadata.AddServiceElement("maxsize", prop.MaxSize.Value.ToString());
-                }
-                else
-                {
-                    SoProp.Metadata.AddServiceElement("maxsize", "200");
+                    if (prop.MaxSize.HasValue && prop.MaxSize.Value > 0)
+                    {
+                        SoProp.Metadata.AddServiceElement("maxsize", prop.MaxSize.Value.ToString());
+                    }
+                    else
+                    {
+                        SoProp.Metadata.AddServiceElement("maxsize", "200");
+                    }
                 }
 
                 if (!extendObject.Properties.ContainsName(prop.SystemName))

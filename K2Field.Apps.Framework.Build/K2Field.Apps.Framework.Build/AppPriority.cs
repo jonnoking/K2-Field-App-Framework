@@ -53,6 +53,19 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
+            AppPriorityProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("58A881FF-0723-4FCC-93B5-A5A1A9638102"),
+                SystemName = "Sort Order",
+                DisplayName = "Sort Order",
+                DataType = SmODataType.Number,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Sort Order",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+            });
 
 
 
