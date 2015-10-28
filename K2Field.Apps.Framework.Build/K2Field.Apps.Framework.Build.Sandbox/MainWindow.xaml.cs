@@ -49,17 +49,47 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             string DeploymentCategory = @"New App Framework\SmartObjects";
 
             SmartObjectDefinitionsPublish smoPublish = new SmartObjectDefinitionsPublish();
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdAudit = CreateSmartBoxSmartObject(Server, (new AppBusinessAudit().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdAudit);
 
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppBusinessAudit().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppException().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppInstance().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppKPI().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppPriority().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppProcess().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppStage().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppStageAction().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppStatus().GetDefinition()), DeploymentCategory));
-            smoPublish.SmartObjects.Add(CreateSmartBoxSmartObject(Server, (new AppType().GetDefinition()), DeploymentCategory));
+
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdException = CreateSmartBoxSmartObject(Server, (new AppException().GetDefinition()), DeploymentCategory);           
+            smoPublish.SmartObjects.Add(sdException);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdInstance = CreateSmartBoxSmartObject(Server, (new AppInstance().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdInstance);
+
+
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdKPI = CreateSmartBoxSmartObject(Server, (new AppKPI().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdKPI);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdPriority = CreateSmartBoxSmartObject(Server, (new AppPriority().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdPriority);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdProcess = CreateSmartBoxSmartObject(Server, (new AppProcess().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdProcess);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdStage = CreateSmartBoxSmartObject(Server, (new AppStage().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdStage);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdStageAction = CreateSmartBoxSmartObject(Server, (new AppStageAction().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdStageAction);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdStatus = CreateSmartBoxSmartObject(Server, (new AppStatus().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdStatus);
+
+            
+            SourceCode.SmartObjects.Authoring.SmartObjectDefinition sdType = CreateSmartBoxSmartObject(Server, (new AppType().GetDefinition()), DeploymentCategory);
+            smoPublish.SmartObjects.Add(sdType);
+
+            sdInstance.AddAssociation(sdAudit, sdAudit.Properties["App_Instance_ID"], sdInstance.Properties["ID"], "AppInstanceAppStage");
+
 
             Server.PublishSmartObjects(smoPublish.ToPublishXml());
 
@@ -67,9 +97,20 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             //Server.DeploySmartObject(AuditDef.ToSmartObjectDeployXml(), AuditDef.Guid);
 
             //SourceCode.SmartObjects.Authoring.SmartObjectDefinition ExcDef = CreateSmartObject(Server, (new AppException().GetDefinition()), DeploymentCategory);
+            
             //Server.DeploySmartObject(ExcDef.ToSmartObjectDeployXml(), ExcDef.Guid);
 
+            //string InstanceAudit = Server.GetAssociationSmartObject(Guid.NewGuid());
+            //AssociationSmartObject a = AssociationSmartObject.Create(sdAudit.to
+
+
+
+
+            smoPublish = new SmartObjectDefinitionsPublish();
+
             
+
+
         }
 
         private SourceCode.SmartObjects.Authoring.SmartObjectDefinition CreateSmartBoxSmartObject(SourceCode.SmartObjects.Management.SmartObjectManagementServer SmartObjectManagementSvr, K2Field.Apps.Framework.Build.SmartObjectDefinition SmO, string DeploymentCategory)
