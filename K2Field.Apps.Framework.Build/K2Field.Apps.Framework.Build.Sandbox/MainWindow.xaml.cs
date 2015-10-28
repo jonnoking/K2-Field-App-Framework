@@ -102,6 +102,17 @@ namespace K2Field.Apps.Framework.Build.Sandbox
             // App Type to App Status
             sdType.AddAssociation(sdStatus, sdStatus.Properties["App_Type_ID"], sdType.Properties["ID"], "AppTypeAppStatus");
 
+            // App Type to App KPI
+            //sdType.AddAssociation(sdKPI, sdKPI.Properties["App_Type_ID"], sdType.Properties["ID"], "AppTypeAppKPI");
+
+            // App Type to App Priority
+            //sdType.AddAssociation(sdPriority, sdStatus.Properties["App_Type_ID"], sdPriority.Properties["ID"], "AppTypeAppPriority");
+
+            // App Stage to App Stage Action
+            sdStage.AddAssociation(sdStageAction, sdStageAction.Properties["App_Stage_ID"], sdStage.Properties["ID"], "AppStageAppStageAction");
+
+
+            // NEED TO CREATE APP TYPE ACTION object
 
             Server.PublishSmartObjects(smoPublish.ToPublishXml());
 
