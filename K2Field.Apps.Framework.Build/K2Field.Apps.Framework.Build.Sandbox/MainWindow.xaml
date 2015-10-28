@@ -8,6 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="btnCreateFrameworkSmartObjects" Content="Create Framework" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top" Width="142" Click="btnCreateFrameworkSmartObjects_Click"/>
+        <Button x:Name="btnDelete" Content="Delete Framework" HorizontalAlignment="Left" Margin="325,53,0,0" VerticalAlignment="Top" Width="123" Click="btnDelete_Click"/>
 
     </Grid>
 </Window>
