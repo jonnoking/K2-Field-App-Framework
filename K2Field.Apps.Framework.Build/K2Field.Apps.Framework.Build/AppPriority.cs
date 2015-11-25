@@ -29,11 +29,11 @@ namespace K2Field.Apps.Framework.Build
             AppPriorityProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("72301b5a-f2ff-4e59-a4c9-1383515cae5c"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -72,7 +72,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppPriority = new SmartObjectDefinition()
             {
                 Id = new Guid("74c9793e-e9cc-44b7-8f03-465b40abe117"),
-                SystemName = "K2App.Core.SMO.AppPriority",
+                SystemName = "K2App_Core_SMO_AppPriority",
                 DisplayName = "K2 App Core App Priority",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppPriorityProperties

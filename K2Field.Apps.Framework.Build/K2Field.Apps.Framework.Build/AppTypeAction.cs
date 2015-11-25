@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace K2Field.Apps.Framework.Build
 {
-    public class AppStatus
+    public class AppTypeAction
     {
-
         public SmartObjectDefinition GetDefinition()
         {
-            #region App Status
-            List<SmartObjectProperty> AppStatusProperties = new List<SmartObjectProperty>();
-            AppStatusProperties.Add(new SmartObjectProperty()
+            #region App Type Action
+            List<SmartObjectProperty> AppTypeActionProperties = new List<SmartObjectProperty>();
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("848b95c5-8c19-4126-b2c6-607c74379acb"),
+                Id = new Guid("{33584F58-FBAA-49E2-AFAF-1AFF17C4E3C9}"),
                 SystemName = "ID",
                 DisplayName = "ID",
                 DataType = SmODataType.AutoGuid,
@@ -26,9 +25,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = true,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("0b78f957-9c78-4a93-879b-f9eb5598cc97"),
+                Id = new Guid("{9BF2D650-D523-4B14-9B70-AC26C99B209D}"),
                 SystemName = "Name",
                 DisplayName = "Name",
                 DataType = SmODataType.Text,
@@ -40,9 +39,9 @@ namespace K2Field.Apps.Framework.Build
                 IsSmartBox = true,
                 MaxSize = 500
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("8e4f908a-9167-4585-b53f-2a6004d2b487"),
+                Id = new Guid("{70276D72-34BF-4F0C-A98D-6B52BC46AB4B}"),
                 SystemName = "Description",
                 DisplayName = "Description",
                 DataType = SmODataType.Memo,
@@ -53,9 +52,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("c6f17c74-7082-499a-884b-85a7f88973b6"),
+                Id = new Guid("{8A3D1F5C-CD1A-4979-A8F9-1AA4AF60A9F3}"),
                 SystemName = "App Type ID",
                 DisplayName = "App Type ID",
                 DataType = SmODataType.Guid,
@@ -66,9 +65,49 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("b3c5f0a5-3963-4818-8ed2-2d5bdc1232b6"),
+                Id = new Guid("{C7F3992F-8274-4C7D-874B-D86E9BB598CB}"),
+                SystemName = "Icon",
+                DisplayName = "Icon",
+                DataType = SmODataType.Image,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Icon",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+            });
+            AppTypeActionProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("{0B0619A4-81A4-4370-B20D-BA105DB9238F}"),
+                SystemName = "Action Form",
+                DisplayName = "Action Form",
+                DataType = SmODataType.Text,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Icon",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+                MaxSize = 500,
+            });
+            AppTypeActionProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("{B07122D9-82C8-4C8E-96BB-1B977ACBCFA9}"),
+                SystemName = "Is Important",
+                DisplayName = "Is Important",
+                DataType = SmODataType.YesNo,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Is Important",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+            });
+            AppTypeActionProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("{756B60A6-9D8D-4DC9-BE37-F810D70820E2}"),
                 SystemName = "Created On",
                 DisplayName = "Created On",
                 DataType = SmODataType.DateTime,
@@ -79,9 +118,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("f472c4e5-2156-4f4c-bf39-860ff690017f"),
+                Id = new Guid("{C5350449-9E01-4348-823E-65A8FA94EC52}"),
                 SystemName = "Created By",
                 DisplayName = "Created By",
                 DataType = SmODataType.Text,
@@ -92,9 +131,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("c89cb3fb-025e-4735-b686-4a53ffec075e"),
+                Id = new Guid("{6F26A498-C30A-4D5A-B4C7-2D2F4F2D9245}"),
                 SystemName = "Modified On",
                 DisplayName = "Modified On",
                 DataType = SmODataType.DateTime,
@@ -105,9 +144,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("8cccc872-b6a7-483b-abb0-5e451fceede5"),
+                Id = new Guid("{2DBF8A78-366F-4338-93CA-F67B30A7766D}"),
                 SystemName = "Modified By",
                 DisplayName = "Modified By",
                 DataType = SmODataType.Text,
@@ -118,9 +157,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("5a8a2dce-4587-4ece-90cb-86a6ab81d46d"),
+                Id = new Guid("{3A4CDD31-1270-4024-B392-18CF2B3F9786}"),
                 SystemName = "Is Active",
                 DisplayName = "Is Active",
                 DataType = SmODataType.YesNo,
@@ -131,9 +170,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("bb66578c-32dc-41c5-a4fa-b8701f5f1246"),
+                Id = new Guid("{FD13C80F-6B65-4D3A-A402-082206B11540}"),
                 SystemName = "Is Deleted",
                 DisplayName = "Is Deleted",
                 DataType = SmODataType.YesNo,
@@ -144,9 +183,9 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
-            AppStatusProperties.Add(new SmartObjectProperty()
+            AppTypeActionProperties.Add(new SmartObjectProperty()
             {
-                Id = new Guid("85973573-35fe-4e68-bd07-7e7fadc6d9ba"),
+                Id = new Guid("{7C55D04A-5204-4EA2-86FE-277FB3ECD1FB}"),
                 SystemName = "Sort Order",
                 DisplayName = "Sort Order",
                 DataType = SmODataType.Number,
@@ -160,21 +199,19 @@ namespace K2Field.Apps.Framework.Build
 
 
 
-            SmartObjectDefinition AppStatus = new SmartObjectDefinition()
+            SmartObjectDefinition AppTypeAction = new SmartObjectDefinition()
             {
-                Id = new Guid("7d89eee6-cda0-4e74-b47c-296acd4959a7"),
-                SystemName = "K2App_Core_SMO.AppStatus",
-                DisplayName = "K2 App Core App Status",
+                Id = new Guid("{1C4B0B36-DAC8-44D3-892F-737291FD3EA4}"),
+                SystemName = "K2App_Core_SMO_AppTypeAction",
+                DisplayName = "K2 App Core App Type Action",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
-                Properties = AppStatusProperties
+                Properties = AppTypeActionProperties
             };
 
-            #endregion App Status
+            #endregion App Type Action
 
 
-            return AppStatus;
-
+            return AppTypeAction;
         }
-
     }
 }

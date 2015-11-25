@@ -42,11 +42,11 @@ namespace K2Field.Apps.Framework.Build
             AppBusinessAuditProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("72301b5a-f2ff-4e59-a4c9-1383515cae5c"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -140,7 +140,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppBusinessAudit = new SmartObjectDefinition()
             {
                 Id = new Guid("5a3c77f1-731f-4930-a1ec-533dd8300ff3"),
-                SystemName = "K2App.Core.SMO.AppBusinessAudit",
+                SystemName = "K2App_Core_SMO_AppBusinessAudit",
                 DisplayName = "K2 App Core App Business Audit",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppBusinessAuditProperties

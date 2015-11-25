@@ -172,7 +172,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppException = new SmartObjectDefinition()
             {
                 Id = new Guid("0c020fc7-8611-4826-9399-904ba5873100"),
-                SystemName = "K2App.Core.SMO.AppException",
+                SystemName = "K2App_Core_SMO_AppException",
                 DisplayName = "K2 App Core App Exception",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppExceptionProperties

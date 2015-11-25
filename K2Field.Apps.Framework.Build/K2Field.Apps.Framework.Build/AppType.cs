@@ -28,11 +28,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("3343bc27-11f5-45a9-aeb5-d4ec1db24bf3"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -72,7 +72,7 @@ namespace K2Field.Apps.Framework.Build
                 Id = new Guid("69113266-1BBE-4FEF-AEA3-5C45E8847A99"),
                 SystemName = "Icon",
                 DisplayName = "Icon",
-                DataType = SmODataType.Memo,
+                DataType = SmODataType.Image,
                 ExtendType = ExtendPropertyType.Default,
                 Description = "Icon",
                 IsKey = false,
@@ -84,11 +84,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("735CCBBF-83E2-43BF-BD7B-96673B4C0DDD"),
-                SystemName = "Start Stage Id",
-                DisplayName = "Start Stage Id",
+                SystemName = "Default Stage Id",
+                DisplayName = "Default Stage Id",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Start Stage Id",
+                Description = "Default Stage Id",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -98,11 +98,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("0c628ec3-ad6b-4a32-a43f-babbde402b3a"),
-                SystemName = "Start Status Id",
-                DisplayName = "Start Status Id",
+                SystemName = "Default Status Id",
+                DisplayName = "Default Status Id",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Start Status Id",
+                Description = "Default Status Id",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -111,11 +111,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("5f2f0cd4-9d0b-4698-be5e-cadaeb0d0031"),
-                SystemName = "Start KPI Id",
-                DisplayName = "Start KPI Id",
+                SystemName = "Default KPI Id",
+                DisplayName = "Default KPI Id",
                 DataType = SmODataType.Guid,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Start KPI Id",
+                Description = "Default KPI Id",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -124,11 +124,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("caa7a92f-d5b8-42bd-835f-988d6d05a206"),
-                SystemName = "Start Priority Id",
-                DisplayName = "Start Priority Id",
+                SystemName = "Default Priority Id",
+                DisplayName = "Default Priority Id",
                 DataType = SmODataType.Guid,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Start Priority Id",
+                Description = "Default Priority Id",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -293,7 +293,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppType = new SmartObjectDefinition()
             {
                 Id = new Guid("5a82e2fc-cd5b-4346-b508-d01095a51de3"),
-                SystemName = "K2App.Core.SMO.AppType",
+                SystemName = "K2App_Core_SMO_AppType",
                 DisplayName = "K2 App Core App Type",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppTypeProperties

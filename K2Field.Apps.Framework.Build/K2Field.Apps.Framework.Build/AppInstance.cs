@@ -43,11 +43,11 @@ namespace K2Field.Apps.Framework.Build
             AppInstanceProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("503c1e04-a8c4-491f-8cfc-9975d7210d52"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -425,7 +425,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppInstance = new SmartObjectDefinition()
             {
                 Id = new Guid("9b9c753b-b8cc-4108-80c6-ba14141d8f6f"),
-                SystemName = "K2App.Core.SMO.AppInstance",
+                SystemName = "K2App_Core_SMO_AppInstance",
                 DisplayName = "K2 App Core App Instance",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppInstanceProperties

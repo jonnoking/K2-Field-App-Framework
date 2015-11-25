@@ -29,11 +29,11 @@ namespace K2Field.Apps.Framework.Build
             AppKPIProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("fcd6471e-e288-4ea5-ba9e-ba32d5695745"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -72,7 +72,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppKPI = new SmartObjectDefinition()
             {
                 Id = new Guid("c501ff73-20ef-44ac-a5fe-9e35fc92df79"),
-                SystemName = "K2App.Core.SMO.AppKPI",
+                SystemName = "K2App_Core_SMO_AppKPI",
                 DisplayName = "K2 App Core App KPI",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppKPIProperties

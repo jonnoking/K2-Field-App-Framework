@@ -59,7 +59,7 @@ namespace K2Field.Apps.Framework.Build
                 DisplayName = "Process Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Process Instance Name",
+                Description = "Process Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -272,7 +272,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppProcess = new SmartObjectDefinition()
             {
                 Id = new Guid("2A2FED0D-3141-411C-96A7-2EC1CDD1E78E"),
-                SystemName = "K2App.Core.SMO.AppProcess",
+                SystemName = "K2App_Core_SMO_AppProcess",
                 DisplayName = "K2 App Core App Process",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppProcessProperties

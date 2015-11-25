@@ -51,6 +51,7 @@
     <Compile Include="AppStageAction.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AppType.cs" />
+    <Compile Include="AppTypeAction.cs" />
     <Compile Include="ServiceInstanceTypes.cs" />
     <Compile Include="SmartObjectDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

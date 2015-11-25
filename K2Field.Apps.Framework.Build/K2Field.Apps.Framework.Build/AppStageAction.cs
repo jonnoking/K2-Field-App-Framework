@@ -29,11 +29,11 @@ namespace K2Field.Apps.Framework.Build
             AppStageActionProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("1d167f7a-f8e3-4344-beec-e30b8f9758db"),
-                SystemName = "Title",
-                DisplayName = "Title",
+                SystemName = "Name",
+                DisplayName = "Name",
                 DataType = SmODataType.Text,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Title",
+                Description = "Name",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
@@ -71,7 +71,7 @@ namespace K2Field.Apps.Framework.Build
                 Id = new Guid("27146894-9d62-45bd-82f0-1e58fe313fec"),
                 SystemName = "Icon",
                 DisplayName = "Icon",
-                DataType = SmODataType.Memo,
+                DataType = SmODataType.Image,
                 ExtendType = ExtendPropertyType.Default,
                 Description = "Icon",
                 IsKey = false,
@@ -203,7 +203,7 @@ namespace K2Field.Apps.Framework.Build
             SmartObjectDefinition AppStageAction = new SmartObjectDefinition()
             {
                 Id = new Guid("e9de772e-3ab7-417a-b07d-3acf862fbddd"),
-                SystemName = "K2App.Core.SMO.AppStageAction",
+                SystemName = "K2App_Core_SMO_AppStageAction",
                 DisplayName = "K2 App Core App Stage Action",
                 ServiceInstanceId = new Guid(ServiceInstanceTypes.SmartBox),
                 Properties = AppStageActionProperties

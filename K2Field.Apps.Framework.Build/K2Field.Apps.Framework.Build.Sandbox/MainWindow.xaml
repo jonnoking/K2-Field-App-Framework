@@ -9,6 +9,11 @@
     <Grid>
         <Button x:Name="btnCreateFrameworkSmartObjects" Content="Create Framework" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top" Width="142" Click="btnCreateFrameworkSmartObjects_Click"/>
         <Button x:Name="btnDelete" Content="Delete Framework" HorizontalAlignment="Left" Margin="325,53,0,0" VerticalAlignment="Top" Width="123" Click="btnDelete_Click"/>
+        <Button x:Name="btnCreateAppType" Content="Create App Type" HorizontalAlignment="Left" Margin="35,157,0,0" VerticalAlignment="Top" Width="113" Click="btnCreateAppType_Click"/>
+        <Button x:Name="btnCreateKPIPriority" Content="Create KPI Priority" HorizontalAlignment="Left" Margin="35,120,0,0" VerticalAlignment="Top" Width="113" IsCancel="True" Click="btnCreateKPIPriority_Click"/>
+        <Button x:Name="btnCreateStages" Content="Create Stages" HorizontalAlignment="Left" Margin="35,203,0,0" VerticalAlignment="Top" Width="113" Click="btnCreateStages_Click"/>
+        <Button x:Name="btnCreateStatus" Content="Create Statuses" HorizontalAlignment="Left" Margin="35,246,0,0" VerticalAlignment="Top" Width="113" Click="btnCreateStatus_Click"/>
+        <Button x:Name="btnUpdateCaseType" Content="Update Case Type" HorizontalAlignment="Left" Margin="35,289,0,0" VerticalAlignment="Top" Width="113" Click="btnUpdateCaseType_Click"/>
 
     </Grid>
 </Window>
