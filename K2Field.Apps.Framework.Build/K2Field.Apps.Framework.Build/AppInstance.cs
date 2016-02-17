@@ -67,6 +67,20 @@ namespace K2Field.Apps.Framework.Build
                 IsUnique = false,
                 IsSmartBox = true,
             });
+
+            AppInstanceProperties.Add(new SmartObjectProperty()
+            {
+                Id = new Guid("{F1F648CE-9174-4C46-BE9A-71355A7425D7}"),
+                SystemName = "Reference",
+                DisplayName = "Reference",
+                DataType = SmODataType.Text,
+                ExtendType = ExtendPropertyType.Default,
+                Description = "Reference",
+                IsKey = false,
+                IsRequired = false,
+                IsUnique = false,
+                IsSmartBox = true,
+            });
             AppInstanceProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("f9d57343-c424-4700-8989-e53c80530091"),

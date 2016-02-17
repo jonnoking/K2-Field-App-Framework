@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AppBusinessAudit.cs" />
     <Compile Include="AppException.cs" />
+    <Compile Include="AppImage.cs" />
     <Compile Include="AppInstance.cs" />
     <Compile Include="AppKPI.cs" />
     <Compile Include="AppPriority.cs" />

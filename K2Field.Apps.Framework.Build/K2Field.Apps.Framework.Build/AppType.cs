@@ -70,11 +70,11 @@ namespace K2Field.Apps.Framework.Build
             AppTypeProperties.Add(new SmartObjectProperty()
             {
                 Id = new Guid("69113266-1BBE-4FEF-AEA3-5C45E8847A99"),
-                SystemName = "Icon",
-                DisplayName = "Icon",
-                DataType = SmODataType.Image,
+                SystemName = "Icon ID",
+                DisplayName = "Icon ID",
+                DataType = SmODataType.Guid,
                 ExtendType = ExtendPropertyType.Default,
-                Description = "Icon",
+                Description = "Icon ID",
                 IsKey = false,
                 IsRequired = false,
                 IsUnique = false,
