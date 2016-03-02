@@ -1,7 +1,22 @@
 
+To Do 20160302
+
+Simplify data model
+* remove is active & is deleted - simplify to IsDisabled
+* review need for Created On, Created By, Modifiedi On, Modified By
+* Simplify SmartObject names and naming convention
+* Revise Folders to - Lookups, Definition, Runtime(?)
+* Need to get images best practices
+* 
 
 
-* Serialize/deserialize SmartObject Definitions
+Missing SmartObjects
+* Stage Instance
+* Help?
 
-* Create SmartObjects
-* Create Association between SmartObjects
+
+
+Why Stored Procs
+* aggregate data across SmartObjects - e.g. Instance and stage/status information
+* simplify method calls - stage instance start - finish
+* simplify data capture e.g. updated, created, etc
